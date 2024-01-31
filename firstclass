@@ -1,0 +1,94 @@
+//#-선언
+/*여기 안에 주석*/
+//
+
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void)
+{
+	//int a = 10;
+	////int-숫자 넣는 다고 미리 지정
+	//int b = 20;
+	//b = b + 1; //== b++;
+
+	/*연산자
+	
+	더하기 +
+	빼기-
+	나누기/
+	곱하기*
+	나머지 %  */
+
+	//출력함수
+	//printf=문자 출력
+	//printf("%d", a);
+
+
+	///연산자 예시(\d)
+	/*printf("a(%d)-b(%d)=%d\n", a, b, a-b);
+	printf("a(%d)/b(%d)=%d\n", a, b, a / b);
+	printf("a(%d)%%b(%d)=%d\n", a, b, a % b);
+	printf("a(%d)*b(%d)=%d\n", a, b, a * b);*/
+
+	//format 타입
+	/*
+	%d: 정수형
+	%f: 실수형
+	%c:문자
+	%s: 문자열(문장)
+	*/
+
+	//자료형
+	/*
+	int:정수형
+	float,double:실수형  (소수점)
+	char:문자
+	string:문자열
+	bool:논리형
+
+	sizeof()-자료의 크기 알려줌
+	*/
+	/*int siz = sizeof(int);
+	printf("%d", siz);*/
+
+	////검산식
+	//int a = 20;
+	//int b = 9;
+	//
+	//printf("%d*%d+%d=%d", b, a/b, a%b, a);
+
+	/* 입력함수
+	scanf()*/
+	//int num;
+	//printf("입력값:");
+	//scanf("%d", &num); //&num==num의 주소
+	//printf("num: %d", num);
+
+	/*int a, b, c;
+	scanf("%d %d %d", &a, &b, &c);
+	printf("%d %d %d", a, b, c);*/
+
+	int a,b;
+	scanf("%d %d", &a, &b);
+	printf("입력받은 a는:");
+	printf("%d", a);
+	printf("  입력받은 b는:");
+	printf("%d\n", b);
+
+	int c;
+	c = b;
+	b = a;
+	a = c;
+	printf("바뀐 a는:");
+	printf("%d", a);
+	printf("  바뀐 b는:");
+	printf("%d", b);
+
+
+	/*int b = 20;
+	scanf("&d &d", &a, &b);
+	a*/
+
+
+}
