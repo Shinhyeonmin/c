@@ -1,0 +1,25 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void)
+{  int a,b,c;
+  scanf("%d %d %d", &a, &b,&c);
+  printf("입력받은 a는:");
+  printf("%d", a);
+  printf("  입력받은 b는:");
+  printf("%d", b);
+  printf("  입력받은 c는:");
+  printf("%d\n", c);
+
+  int d;
+  d = a;
+  a = c;
+  c = b;
+  b = d;
+  printf("바뀐 a는:");
+  printf("%d", a);
+  printf("  바뀐 b는:");
+  printf("%d", b);
+  printf("  바뀐 c는:");
+  printf("%d", c);
+}
