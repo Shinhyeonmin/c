@@ -1,0 +1,126 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void)
+{
+	//제어문: 조건문&반복문
+	//조건문:if, else, else if
+	/*
+	if(조건)
+	{코드}
+
+	if(조건)
+	{코드1}
+	else
+	{코드2}
+
+	if(조건)
+	{코드1}
+	else if(조건)
+	{코드2}
+
+	if(조건)
+	{코드1}
+	else if(조건)
+	{코드2}
+	else
+	{코드3}
+
+	if(조건)
+	{코드1}
+	else if(조건)
+	{코드2}
+	else if(조건)
+	{코드3}
+	else if(조건)
+	{코드4}
+	*/
+
+	//논리연산자
+	/*
+	>, <, >= , <=
+	==:서로같다
+	!=:서로다르다
+	&&:and(두조건이 모두 참일때만 참) (조건1&&조건2)
+	||:or(두조건중에 하나라도 참이면 참) (조건1||조건2)
+	!:아니다 (if(!~~) => 내가 넣은 값이 참이면 거짓으로 나옴//반대로 거짓을 넣으면 참이 된다)
+	*/
+
+	//int num;
+	//scanf("%d", &num);
+
+	//if (num > 10 && sizeof(num)==sizeof(int) || num<0)
+	//{
+	//	printf("trig");
+	//}
+	//else if (!num) /*if(num)==0빼고 모든 값이 다 참*/
+	//{
+	//	printf("trig2");
+	//}
+	//else
+	//{
+	//	printf("trig3");
+	//}
+
+	/*int a;
+	printf("시험점수를 입력하세요");
+	scanf("%d", &a);
+	printf("당신의 등급은");
+	if (90 <= a && a <= 100)
+	{
+		printf("A");
+	}
+	else if (80 <= a && a<= 89)
+	{
+		printf("B");
+	}
+	else if(70 <= a&& a <= 79)
+	{
+		printf("C");
+	}
+	else if(60 <= a && a<= 69)
+	{
+		printf("D");
+	}
+	else
+	{
+		printf("F");
+	}*/
+
+	/*int a;
+	scanf("%d", &a);
+	if (a % 4 == 0 && a % 100 != 0 || a % 400 == 0)
+	{
+		printf("1");
+	}
+	else
+		printf("0");*/
+
+	/*int a;
+	scanf("%d", &a);
+	if (a % 2 == 0)
+		printf("짝");
+	else
+		printf("홀");*/
+
+	int H,M;
+	scanf("%d %d", &H, &M);
+	if (M < 45&&H!=0)
+	{
+		H = H - 1;
+		M = M + 60-45;
+		printf("%d %d", H, M);
+	}
+	else if (M < 45 && H == 0)
+	{
+		H = 23;
+		M = M + 60 - 45;
+		printf("%d %d", H, M);
+	}
+	else
+	{
+		M = M - 45;
+		printf("%d %d", H, M);
+	}
+
+}
