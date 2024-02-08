@@ -1,0 +1,86 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void)
+{
+	//배열 = Array
+	// 자료형 배열이름[크기];
+	//int ary[10] = { 1,2,3,4 };
+	//printf("%d\n", ary[2]);
+	//for (int i = 0; i < 10; i++)
+	//{
+	//	printf("%d\n", ary[i]);
+	//}
+
+	//for (int i = 0; i <sizeof(ary)/sizeof(int); i++)
+	//{
+	//	printf("%d\n", ary[i]);
+	//}
+	// 
+	//printf("%d\n", sizeof(ary)); //자료형크기x배열크기
+
+	//for, while
+	
+	//for (int i = 0; i < 10; i++)
+	//{
+	//	printf("hello world")
+	//}
+
+
+	//int a = 10;
+	//while (a < 20) //while은 참이면 계속 진행이 됨
+	//{
+	//	printf("%d", a);
+	//	a++;
+	//}
+
+	/*for:반복횟수가 정해져있을 때
+	while:반복할 조건이 정해져 있을 때*/
+	/*
+	int a;
+	scanf("%d", &a);
+	
+	int ahr = 0;
+	for (ahr = 2; ahr<=a; ahr++)
+	{
+		//printf("%d %% %d = %d\n", a, ahr, a % ahr);
+		if (a % ahr == 0)
+		{
+			//printf("%d\n", ahr);
+			if (ahr == a)
+				printf("소수입니다");
+			else
+				printf("소수가 아닙니다");
+			break;
+		}
+	}*/
+	
+	int a; 
+	scanf("%d", &a);
+	
+	int i = 0;
+	for (i = 2; i <= a; i++)
+	{
+		if (a % i == 0)
+		{
+			printf("%d", i);
+			if (a % i == 0)
+			{
+				printf("*%d\n", i);
+				a = a / i;
+				i--;
+			}
+
+			if (a == 1)
+			{
+				printf("소인수분해의 끝");
+				break;
+			}
+		}
+		else if (a % i != 0);
+		{
+			printf("*");
+		}
+	}
+	
+}
