@@ -1,0 +1,49 @@
+//소인수 분해 문제
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void)
+{
+  int a;
+  scanf("%d", &a);
+
+  int ahr = 0;
+  for (ahr = 2; ahr<=a; ahr++)
+  {
+    //printf("%d %% %d = %d\n", a, ahr, a % ahr);
+    if (a % ahr == 0)
+    {
+      //printf("%d\n", ahr);
+      if (ahr == a)
+        printf("소수입니다");
+      else
+        printf("소수가 아닙니다");
+      break;
+    }
+  }*/
+
+  int a; 
+  scanf("%d", &a);
+
+  int i = 0;
+  for (i = 2; i <= a; i++)
+  {
+    if (a % i == 0)
+    {
+      printf("%d", i);
+      if (a % i == 0)
+      {
+        printf("*");
+        a = a / i;
+        i--;
+      }
+
+      if (a == 1)
+      {
+        printf("소인수분해의 끝");
+        break;
+      }
+    }
+  }
+
+}
