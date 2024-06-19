@@ -1,0 +1,17 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void)
+{
+	/*printf("Hello World\n");
+	printf("Shin Hyeonmin");*/
+	/*int x = 3;
+	printf("%d", sizeof(short)); //sizeof는 byte 형*/
+	//첫번쨰 출력 == 숫자 65,66,67
+	//두번째 == A,B,C
+	char code = 65;
+	printf("%d %d %d\n", code, code+1, code+2);
+	printf("%c %c %c", code, code + 1, code + 2);
+	
+	return 0;
+}
