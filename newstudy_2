@@ -1,0 +1,54 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void)
+{
+	/*
+	++x:1을 더하고서 사용
+	x++: 사용하고서 1을 더함
+	*/
+	//컴파일러는 코드를 위에서 아래로, 왼쪽에서 오른쪽으로 확인한다.
+	/*char c;
+	int i;
+	float f;
+	c = 10000;//문자 출력(아스키 코드를 기반로 함==127까지 있는데 넘어선 숫자임)
+	i = 3.142593;
+	f = 10 + 20;
+	printf("%c %d %f", c, i, f);*/
+	/*int x;
+	printf("%f", (float)(x = 5));*/
+
+	/*거짓:0, 참:1*/
+
+	/*int year, result;
+	printf("연도를 입력하세요");
+	scanf("%d", &year);
+	result = (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0);
+	if (result == 1)
+	{
+		printf("윤년입니다");
+	}
+	else
+	{
+		printf("윤년이 아닙니다.");
+	}*/
+
+	//(x+y)?x:y ==x+y가 참이면 x가 출력되고, 거짓이면 y가 출력된다
+	//sizeif()==가로 안에 들어온걸 다 바이트 크기로 변환 시킴
+	
+	/*int A, B, C;
+	scanf("%d %d %d", &A, &B, &C);
+	printf("%d\n", ((A + B) % C));
+	printf("%d\n", (((A % C) + (B % C)) % C));
+	printf("%d\n", ((A*B) % C));
+	printf("%d", (((A % C) * (B % C)) % C));*/
+	
+	/*int a, b;
+	scanf("%d %d", &a, &b);
+	printf("%d\n", a*(b%10));
+	printf("%d\n", a * ((b%100)-(b%10))/10);
+	printf("%d\n", a * ((b-(b % 100))/ 100));
+	printf("%d", a * b);*/
+
+	return 0;
+}
