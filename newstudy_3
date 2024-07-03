@@ -1,0 +1,119 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main(void)
+{
+	/*int A, B, C, D;
+	printf("정수 3개를 입력하시오:");
+	scanf("%d %d %d", &A, &B, &C);
+	if (A < B)
+	{
+		A = D;
+		if (D < C)
+			printf("제일 작은 수는 %d 입니다", D);
+		else 
+			printf("제일 작은 수는 %d 입니다", C);
+	}
+	else 
+	{
+		if (B < C)
+			printf("제일 작은 수는 %d 입니다", B);
+		else
+			printf("제일 작은 수는 %d 입니다", C);
+	}*/
+
+	/*계산기 만들기
+	int x, y;
+	char cal;
+	printf("수식을 입력하시오:");
+	scanf("%d %c %d", &x, &cal, &y);
+
+	if (cal == '+' )
+		printf("%d", x + y);
+	else if (cal == '-')
+		printf("%02d", x - y);
+	else if (cal == '/')
+		printf("%.2f", (double) x / y); //나누기는 정수로 되고 소수로 나타나지지 않으니까, 형태 변환을 해준다. 
+		// + %.2f는 소수점 둘쨰 자리 까지 나타내는 걸 의미 (반올림)
+	else if (cal == '*')
+		printf("%d", x * y);
+	else
+		printf("지원하지 않는 연산자 입니다.");*/
+
+	//
+
+	//사분면 고르기
+	/*int x, y;
+	scanf("%d %d", &x, &y);
+
+	if (x < 0)
+	{
+		if (y < 0)
+			printf("3");
+		else
+			printf("2");
+	}
+	else
+	{
+		if (y < 0)
+			printf("4");
+		else
+			printf("1");
+	}*/
+
+	//알람시계
+	/*int H, M;
+	scanf("%d %d", &H, &M);
+
+	if (H == 0)
+	{
+		if (M >= 45)
+			printf("%d %d", H, M - 45);
+		else
+		{
+			M = M + 60;
+			printf("%d %d", 23, M - 45);
+		}
+	}
+	else
+	{
+		if (M >= 45)
+			printf("%d %d", H, M - 45);
+		else
+		{
+			M = M + 60;
+			printf("%d %d", H - 1, M - 45);
+		}
+	}*/
+
+	//구구단
+	/*int A;
+	int B = 1;
+	printf("구구단 중 출력하고 싶은 단을 선택하시오:");
+	scanf("%d", &A);
+
+	while (B < 10)
+	{
+		printf("%d X %d = %d\n", A, B, A * B);
+		B++;
+	}*/
+
+	//센티널: 마지막에 특정한 값(예시: 마이너스값)이 나오면 반복문을 끝냄
+	int n = 0;
+	int grade;
+	float average;
+	scanf("%d", &grade);
+	int sum=0;
+
+	while (grade >= 0)
+	{
+		sum = sum + grade;
+		scanf("%d", &grade);
+		n++;
+	}
+	
+	average = (double) sum / n;
+	printf("%f",  average);
+
+	return 0;
+}
