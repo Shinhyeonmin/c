@@ -3,7 +3,7 @@ define _CRT_SECURE_NO_WARNINGS
 
 int main(void)
 {
-	//EOF== end of file(데이터의 마지막 부분)
+	//EOF== end of file(데이터의 마지막 부분) --> 주로 끝을 모르는 코드를 쓸때 씀 하.....
 
 	/*do while 문
 	do
