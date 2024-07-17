@@ -8,8 +8,7 @@ int main(void)
 	/*do while 문
 	do
 	{여기에 실행할 문장을 적고;}
-	while
-	{여기에 while 문을 적는다;}*/
+	while(i>1)*/
 
 	/*int i = 10;
 	while (1)
