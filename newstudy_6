@@ -1,0 +1,46 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h> //rand 함수 불러옴
+#include <time.h> //time 함수 불러옴
+#include "main.h"//헤더파일에 있는 함수들을 불러옴
+
+static int a;//다른 파일에서 a라는 값을 사용 못함(값 변경하지 못하게 함)==>전역변수
+
+int main(void)
+{
+
+	/*srand(time(NULL));
+	//rand 함수의 seed 값 바뀜(seed 값=list 값)
+	//초는 계속 바뀌기 때문에 time 함수를 사용하면 랜덤에 가까운 값이 나옴
+
+	printf("%d",rand());*/
+
+	/*auto int c;//우리가 auto라고 안써도 기본적으로 다 auto롤 저장됨(어디에 써도 변수는 초기화 가능)
+	static int b;//블록이 사라져도 b 값은 남아있음(처음 호출 시에만 변수가 초기화가 됨)==>지역변수*/
+
+	//배열에 숫자 집어넣기
+	/*int grade[5]; //배열 선언하기
+	for (int i = 0;i<5; i++)
+	{
+		grade[i] = 10 * (i+1);
+		printf("%d\n", grade[i]);
+	}*/
+
+	//학생 평균 성적
+	/*int student_grade[5];
+	int i;
+
+	for (i = 0; i < 5; i++)
+	{
+		int grade = 0;
+		scanf("%d", &grade);
+		student_grade[i] = grade;
+		if (i == 4)
+			printf("%d", (student_grade[0] + student_grade[1] + student_grade[2] + student_grade[3]+ student_grade[4])/5);
+	}*/
+	
+	int grade[] = { 10,20,30,40,50,60 };
+	//grade 배열의 원소 개수 계산 ==> sizeof()
+	printf("%d", sizeof(grade) / sizeof(grade[0]));
+	return 0;
+}
