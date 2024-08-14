@@ -1,0 +1,61 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+//int pointer(int a);
+void swap(int* a, int* b);
+int main(void)
+{
+    //포인터를 이용해서 뒤집기
+   /* for (int i = 4; i>-1; i--)
+        printf("%d ",pointer(i));*/
+
+    //함수를 이용해 값 바꾸기
+    /*int a = 10;
+    int b = 20;
+    printf("swap 전 a와 b: %d and %d", a, b);
+    swap(&a, &b); 
+    printf("\nswap 후 a와 b: %d and %d", a, b);*/
+
+    //아스키코드 값 출력하기
+    /*int aski = 127;
+    for (int i = 32; i <= aski; i++)
+    {
+        printf("%c\n", i);
+    }*/
+
+    //SEOUL의 문자열 길이를 출력하고 거꾸로 출력하기
+    char World[] = "SEOUL";
+    int num = 0;
+    for (int i = 0;; i++)
+    {
+        num++;
+        if (World[i] == '\0')
+        {
+            printf("%d\n", num - 1);
+            break;
+        }
+    }
+
+    char back[50];
+    for (int j = 0; World[j] != '\0';j++)
+    {
+            back[j] = World[num-j-2];
+    }
+    back[num-1] = '\0';
+    printf("%s", back);
+}
+
+/*void swap(int* a, int* b)
+{
+    int g=*a;
+    *a = *b;
+    *b = g;
+}*/
+
+/*int pointer(int a)
+{
+    int arr[] = { 10,20,30,40,50 };
+    int u = 0;
+    u = *(arr + a);
+    return(u);
+}*/
