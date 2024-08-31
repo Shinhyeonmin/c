@@ -1,0 +1,45 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>//strlen(문자열 이름) ===> 문자열 길이 세줌
+
+
+int main(void)
+{
+    /*int T, R;
+    scanf("%d", &T);
+    char alpha[21];
+
+    for (int i=0; i < T; i++)
+    {
+        int a = 0;
+        scanf("%d", &R);
+        scanf("%s", alpha);
+        
+        for (int s = 0; alpha[s]!='\0'; s++) 
+        {
+            for (int g = 0; g < R; g++)
+            {
+                printf("%c", alpha[s]);
+            }
+        }
+        printf("\n");
+    }*/
+
+    int num=0;
+    char sentence[1000000];
+    gets(sentence);
+
+
+    for (int i = 0; i < strlen(sentence); i++)
+    {
+        if (sentence[i] == ' ')
+            num++;
+    }
+    if (sentence[0] == ' ')
+        num--;
+    if (sentence[strlen(sentence)-1] == ' ')
+        num--;
+    printf("%d", num + 1);
+
+    return 0;
+}
