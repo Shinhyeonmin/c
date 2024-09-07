@@ -1,0 +1,101 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+//이진 탐색(Binary Search) 함수 구현하기
+//내용: 배열 안에서 내가 원하는 값의 유무 확인, 원하는 값이 있으면 그 값의 위치를, 없으면 -1 리턴
+//알고리즘
+/*
+1. 주어진 배열을 정렬
+2. low와 high를 생성, low는 배열의 인덱스, high는 배열의 마지막 인덱스를 가르킴
+3. 매번 low와 high의 중간 값인 mid를 구하고, 배열의 mid 번쨰 값과 target 비교
+4-1. 만약 target 보다 배열의 mid 번째 값이 적으면 target은 더 큰 범위에 있으므로 low를 mid+1로 변경
+4-2. 만약 target 보다 배열의 mid 번째 값이 크면 target은 더 작은 범위에 있으므로 high를 mid-1로 변경
+4-3. 만약 target과 배열의 mid 번째 값이 같으면 mid 값 반환
+5. 위 과정을 low가 high보다 작거나 같을 떄 까지 했는 데 못 찾으면 -1 반환
+*/
+
+void Bubble_Sort(int arr[],int n);
+int Binary_Search(int arr[],int n);
+
+int main(void)
+{
+  srand(time(NULL));
+  int a[20]={0};
+  int idx =0;
+  while (idx<20)
+  {
+    int x =rand()%100+1,flag =1;
+    for (int i=0;i<idx;i++)
+      {
+        if(a[i]==x)
+        {
+          flag =0;
+          break;
+        }
+      }
+    if(flag)
+    {
+      a[idx++]=x;
+    }
+  }
+  
+  int result = Binary_Search(a, 20);
+
+  if(result==-1)
+  {
+    printf("찾는 값은 배열에 없습니다.\n");
+  }
+  else
+  {
+    printf("찾고자 하는 값은 배열의 %d에 있습니다.\n", result);
+  }
+  return 0;
+}
+
+//여기서부터 함수들....
+void Bubble_Sort(int arr[],int n)
+{
+  for(int i=0;i<n-1;i++)
+    {
+    for(int j=0; j<n-1-i;j++)
+     {
+       if(arr[j] > arr[j+1])
+       {
+         int temp = arr[j];
+          arr[j]=arr[j+1];
+         arr[j+1]=temp;
+       }
+     }
+    }
+}
+
+int Binary_Search(int arr[],int n)
+{
+  Bubble_Sort(arr, n);
+  for (int i =0; i<20;i++)
+    printf("%d ",arr[i]);
+  
+  int target;
+  printf("\n찾고자 하는 값을 입력하세요: ");
+  scanf("%d",&target);
+
+  int low =0, high = n-1;
+
+  while(low<=high)
+    {
+      int mid = (low+high)/2;
+
+      if(arr[mid]==target)
+        return mid;
+      else if(arr[mid]>target)
+      {
+        high=mid-1;
+      }
+      else
+        low=mid+1;
+    }
+  
+  return -1;
+}
