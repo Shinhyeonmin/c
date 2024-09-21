@@ -1,0 +1,62 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+char input[3001] = "";
+char compare[3001] = "";
+
+//typedef 예시
+/*
+struct student
+    {
+     int number;
+     char name[20];
+     float hight;
+    }
+
+    위에 거에 'typedef'를 붙이면, 
+    typedef struct student
+    {
+     int number;
+     char name[20];
+     float hight;
+    } STD;=>이를 STD라고 나타냄
+*/
+int main(void)
+{
+    //수 이어쓰기
+    int N=0,index=0;
+    scanf("%s", input);
+
+    while (index < strlen(input))
+    {
+        N++;
+        sprintf(compare, "%d", N);//sprintf(이 문자열에, "이 형태로 저장한다", 저장할 변수나 수식)
+        for (int i = 0; i < strlen(compare); i++)
+        {
+            if (compare[i] == input[index])
+            {
+                index++;
+            }
+        }
+        //printf("compare:%s,N:%d,index:%d\n",compare, N, index);
+    }
+    printf("%d\n", N);
+
+    //구조체-열거형
+    /*
+    변수가 가질 값을 열거한거
+    enum days1(Mon,Tue,Wed,Thu,Fri,Sat, Sun) ==> 순서대로 0,1,2,3,4,5,6
+    enum days2(Mon=1,Tue,Wed,Thu,Fri,Sat, Sun) ==> 순서대로 1,2,3,4,5,6,7
+    enum days3(Mon,Tue=3,Wed=4,Thu,Fri,Sat, Sun) ==> 순서대로 2,3,4,5,6,7,8
+    enum num(0,1) ==> 0이란 이름을 가진 변수임
+    */
+
+    //typedef==>자료형을 바꾸는 아이
+    /*
+    예시
+    struct student s; ==> 이렇게 'struct student'라는 걸 붙이고 s라는 변수를 만들어야 했음
+    SRD s;==>이렇게 표현 ㄱㄴ
+    */
+
+    return 0;
+}
