@@ -1,0 +1,67 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+char first_num[81];
+char second_num[81];
+char result_num[81];
+
+int main(void)
+{
+    //이진수 덧셈
+    scanf("%s", first_num);
+    scanf("%s", second_num);
+
+    int first_length = strlen(first_num);
+    int second_length = strlen(second_num);
+
+    int mini;
+    int cal;
+    int final_length;
+
+    if (first_length > second_length)
+    {
+        final_length = first_length;
+        mini = first_length - second_length;
+    }
+    else
+    {
+        final_length = second_length;
+        mini = second_length - first_length;
+    }
+
+    result_num[final_length] = '\0';
+    printf("result_num: %s\n", result_num);
+    // first_num: 1001101 
+    // second_num:  10010
+    // result_num:0000000
+    for (int i = first_length - 1, j = second_length - 1, k = final_length - 1; i >= 0 && j >= 0; i--, j--, k--)
+    {
+        cal = (first_num[i] - '0') + (second_num[j] - '0');
+        printf("%d\n", cal);
+        printf("i; %d, j: %d, k: %d\n", i, j, k);
+        if (cal > 1)
+        {
+            result_num[k] = '0';
+        }
+        else
+        {
+            result_num[k] = cal + '0';
+        }
+        printf("result_num: %s\n", result_num);
+    }
+
+
+    /* for (int i = 0; i < mini; i++)
+     {
+         if (first_length > second_length)
+         {
+             result_num[i] = first_num[i];
+         }
+         else
+             result_num[i] = second_num[i];
+     }*/
+
+    return 0;
+}
