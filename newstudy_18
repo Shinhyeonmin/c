@@ -1,0 +1,60 @@
+#include <stdio.h>
+#define PRINT(exp) printf(#exp " = %d\n",(exp))
+#define VAR(n) v##n
+
+#ifndef TOKEN(name, n) //TOKEN을 정의 되어있지 않으면 정의 하겠다
+	#define TOKEN(name, n) name ## n
+#endif
+
+#include <stdbool.h>
+#include <stdlib.h>
+
+//명예의 전당(1)
+// score_len은 배열 score의 길이입니다.
+int* solution(int k, int score[], size_t score_len) {
+	// return 값은 malloc 등 동적 할당을 사용해주세요. 할당 길이는 상황에 맞게 변경해주세요.
+	
+	int* honor = (int*)calloc(sizeof(int), k);
+	int* answer = (int*)malloc(score_len * sizeof(int));
+
+	for (int i = 0; i < score_len; i++)
+	{
+		for (int j = 0; j < k; j++)
+		{
+			if (score[i] < honor[j])
+			{
+				score[i] = honor[j];
+				answer[i] = honor[k];//여기 개 이상해 여기서 부터 풀어
+				break;
+			}
+		}
+	}
+
+	
+
+	//return answer;
+}
+
+int main(void)
+{
+	/*int sum2 = 3, v1;
+	int x = 1;
+	//PRINT(x + 2);
+
+	VAR(1) = 2;
+	int s = TOKEN(sum, 2);
+	printf("%d %d", v1, s);*/
+
+	int k = 3;
+	int score[7] = { 10, 100, 20, 150, 1, 100, 200 };
+	
+	int score_len = 7;
+	int* result = solution(k, score, score_len);
+	for (int i = 0; i < score_len; i++)
+	{
+		printf("%d ", result[i]);
+	}
+
+
+	return 0;
+}
