@@ -1,0 +1,44 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include "example.h"
+
+int main(void)
+{
+	NODE node1, node2, node3;
+	node1.data = 1;
+	node1.next = NULL;
+	node2.data = 2;
+	node2.next = NULL;
+	node3.data = 3;
+	node3.next = NULL;
+	NODE* np=&node1;
+	//np를 이용해서 node1->node2->node3롤 이어주고
+	//원소값 순서대로 출력
+	//쉽게 풀어쓴 C언어 13장 & 17장 참고 == 자체참조 구조체
+
+	/*int n;
+	scanf("%d", &n);
+
+	arr* list = NULL;
+
+	NODE* new_node = (NODE*)malloc(sizeof(arr));*/
+	/*new_node->data = data;
+	new_node->next = NULL;
+	list 가 NULL이면 
+		list사 new_node를 가리킨디ㅏ
+	아니먄 
+		list의 마지막 node의 next르르 new_node로 변경*/
+
+	/*for (int i = 0; i < n; i++)
+	{
+		//n개의 정수를 입력받고 연결리스트에 추가 append()
+		append(i);
+	}*/
+
+	//연결리스트의 특정 위치에 값추가 index()
+	//연결리스트의 원소값 추출해서 확인 pop()
+	//연결리스트의 x번쨰 값 확인 index()
+	//반복문을 이용해서 원결리스트 원소값 순회 index()
+
+	return 0;
+}
