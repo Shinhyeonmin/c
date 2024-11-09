@@ -1,0 +1,72 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
+
+//공원 산책
+int* solution(const char* park[], size_t park_len, const char* routes[], size_t routes_len) {
+    int W = strlen(park[0]);
+    int H = park_len;
+
+    int x , y ;
+    for (int i = 0; i < H; i++)
+    {
+        for (int j = 0; j < W; j++)
+        {
+            if (park[i][j] == 'S')
+            {
+                x = i;
+                y = j;
+            }
+        }
+    }
+    
+    char what[] = { 'W','E','N','S' };
+    int dx[] = {0,0,-1,1};
+    int dy[] = { -1,1,0,0 };
+
+    char dir;
+    int move;
+    for (int i = 0; i < routes_len;i++)
+    {
+        dir = routes[i][0];
+        move = routes[i][2]-'0';
+
+        int k = 0;
+        while (dir != what[k++]);
+        k--;
+
+        int nx = x;
+        int ny = y;
+        int flag = 1;
+        for (int f = 0; f < move; f++)
+        {
+            nx += dx[k];
+            ny += dy[k];
+            if (nx >= H || ny >= W || nx < 0 || ny < 0 || park[nx][ny] == 'X')
+            {
+                flag = 0;
+                break;
+            }
+        }
+        if (flag)
+        {
+            x = nx;
+            y = ny;
+        }
+    }
+    int* answer = (int*)malloc(sizeof(int)*2);
+    answer[0] = x;
+    answer[1] = y;
+    return answer;
+}
+
+void main()
+{
+    char* park[] = { "SOO", "OOO", "OOO" };
+    char* routes[] = { "E 2","S 2","W 1" };
+
+    int* answer = solution(park, 3, routes, 3);
+    printf("[%d, %d]", answer[0], answer[1]);
+}
