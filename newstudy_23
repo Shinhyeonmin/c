@@ -1,0 +1,154 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+#include <stdbool.h>
+
+typedef struct add_plus
+{
+	char name[50];
+	char address[100];
+	char phone[20];
+	char charac[100];
+}CUSTOMER;
+
+void addinfo(FILE* fp);
+void changeinfo(FILE* fp);
+int searchinfo(FILE* fp, char* cus_name);
+
+int main(void)
+{
+
+	//주소록 만들기-텍스트 파일에
+	//기능: 1. 주소추가-이름, 주소, 휴대폰, 특징
+	//      2. 수정
+	//      3. 검색
+	//      4. 종료
+
+	//프로그램 과정
+	//1. 3명의 주소 추가
+	//2. 3명중 1명의 정보 수정
+	//3. 3명의 정보 검색
+	//4. 종료
+
+	FILE* fp = NULL;
+
+	fp = fopen("adress.txt", "a+");
+
+
+	int c;
+
+	printf("1. 3명의 주소 추가\n");
+	printf("2. 3명중 1명의 정보 수정\n");
+	printf("3. 3명의 정보 검색\n");
+	printf("4. 종료\n");
+	printf("4 가지중 무엇을 원하나요?\n");
+
+	char cus_name[50];
+	while (true)
+	{
+		scanf("%d", &c);
+
+		switch (c)
+		{
+		case 1:
+			addinfo(fp);
+			break;
+		case 2:
+			changeinfo(fp);
+			break;
+		case 3:
+			printf("누구를 검색할건가요?");
+			scanf("%s", cus_name);
+			searchinfo(fp, cus_name);
+			break;
+		case 4:
+			printf("안녕히 가세요!");
+			return 0;
+		}
+	}
+}
+
+void addinfo(FILE* fp)
+{
+	fp = fopen("adress.txt", "a+");
+	fflush(stdin);
+	CUSTOMER cus;
+	printf("name: ");
+	scanf("%s", cus.name);
+
+	printf("address: ");
+	scanf("%s", cus.address);
+
+	printf("phone number: ");
+	scanf("%s", cus.phone);
+
+	printf("charactor:");
+	scanf("%s", cus.charac);
+
+	fwrite(&cus, sizeof(cus), 1, fp);
+	fclose(fp);
+}
+
+void changeinfo(FILE* fp)
+{
+	fp = fopen("adress.txt", "a+");
+	fflush(stdin);
+	CUSTOMER people;
+	char cus_name[50];
+	int existence;
+	scanf("%s", cus_name);
+
+	existence = searchinfo(fp, cus_name);
+	fseek(fp, -((long)sizeof(people)), SEEK_CUR);
+
+	int change;
+	if (existence == 1)
+	{
+		printf("1. name, 2. address, 3. phone_number, 4. character\n");
+		printf("What do you want to change?:");
+		scanf("%d", &change);
+
+		switch (change)
+		{
+		case 1:
+			scanf("%s", people.name);
+			break;
+		case 2:
+			scanf("%s", people.address);
+			break;
+		case 3:
+			scanf("%s", people.phone);
+			break;
+		case 4:
+			scanf("%s", people.charac);
+			break;
+		}
+	}
+	fclose(fp);
+}
+
+int searchinfo(FILE* fp, char* cus_name)//사람의 유무
+//여기서 사람의 정보 출력
+{
+	fp = fopen("adress.txt", "r+");
+	CUSTOMER customer;
+	int found = 0;
+
+	while (fread(&customer, sizeof(customer), 1, fp) != EOF)
+	{
+		if (strcmp(customer.name, cus_name) == 0)
+		{
+			found = 1;
+			printf("Customer is found.\n");
+			printf("name: %s, address: %s, phone: %s, character: %s\n", customer.name, customer.address, customer.phone, customer.charac);
+			fclose(fp);
+			return found;
+		}
+		else
+		{
+			printf("No customer found.\n");
+			fclose(fp);
+			return found;
+		}
+	}
+}
